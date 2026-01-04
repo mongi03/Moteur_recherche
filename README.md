@@ -1,43 +1,35 @@
-📄 Moteur de recherche documentaire (Reddit & ArXiv)
-📌 Description
+text
+# 📄 Moteur de Recherche Documentaire (Reddit & ArXiv)
 
-Ce projet consiste à développer un moteur de recherche documentaire en Python, basé sur un ensemble de documents textuels issus de différentes sources, notamment Reddit et ArXiv.
+## 🧠 Description
 
-L’objectif principal est de permettre à un utilisateur de formuler des requêtes par mots-clés et d’obtenir une liste de documents classés par pertinence, à l’aide de méthodes statistiques classiques de recherche d’information (TF, TF-IDF, similarité cosinus).
+Ce projet consiste à développer un **moteur de recherche documentaire en Python** basé sur un corpus de documents textuels provenant de **Reddit** et **ArXiv**. L’objectif est de permettre à l’utilisateur de formuler des **requêtes par mots-clés** et d’obtenir une **liste de documents classés par pertinence**, à l’aide de méthodes classiques de **recherche d’information** : fréquence des termes (TF), pondération TF-IDF et similarité cosinus.
 
-Le projet inclut également une interface graphique interactive permettant une utilisation conviviale du moteur de recherche, sans nécessiter de connaissances en programmation.
+Le projet inclut également une **interface graphique interactive** (via `ipywidgets`), afin de proposer une utilisation conviviale sans nécessiter de connaissances en programmation.
 
-🎯 Fonctionnalités principales
+---
 
-Constitution et gestion d’un corpus de documents textuels
+## 🎯 Fonctionnalités
 
-Moteur de recherche basé sur :
+- Constitution et gestion d’un **corpus de documents textuels**
+- **Moteur de recherche** basé sur :
+  - Fréquence des termes (**TF**)
+  - Pondération **TF-IDF**
+  - **Similarité cosinus**
+- **Recherche par mots-clés** et classement des documents par pertinence
+- **Interface graphique interactive** avec `ipywidgets`
+- **Filtres de recherche** :
+  - Source (Reddit / ArXiv)
+  - Auteur
+  - Période temporelle
+- **Analyse de l’évolution temporelle** d’un mot-clé
+- **Comparaison des résultats** entre Reddit et ArXiv
 
-fréquence des termes (TF),
+---
 
-pondération TF-IDF,
+## 🧱 Structure du projet
 
-similarité cosinus
-
-Recherche par mots-clés
-
-Classement des documents par pertinence
-
-Interface graphique interactive avec ipywidgets
-
-Filtres de recherche :
-
-source (Reddit / ArXiv),
-
-auteur,
-
-période temporelle
-
-Analyse de l’évolution temporelle d’un mot-clé
-
-Comparaison des résultats entre Reddit et ArXiv
-
-🧱 Structure du projet
+```bash
 ├── Corpus.py
 ├── Document.py
 ├── RedditDocument.py
@@ -48,114 +40,121 @@ Comparaison des résultats entre Reddit et ArXiv
 ├── data/
 │   └── corpus.csv
 ├── README.md
-
-🛠️ Environnement et dépendances
-
+🛠️ Environnement et installation
+Prérequis
 Python ≥ 3.9
 
 Environnement virtuel recommandé (venv)
 
-Bibliothèques principales :
+Git installé pour cloner le dépôt
 
-numpy
-
-pandas
-
-scipy
-
-matplotlib
-
-ipywidgets
-
-praw
-
-xmltodict
-
-certifi
-
-Installation des dépendances :
-
-pip install numpy pandas scipy matplotlib ipywidgets praw xmltodict certifi
-
-▶️ Lancer le projet
-
-Cloner le dépôt :
-
+Clonage du dépôt
+bash
 git clone <url_du_repo>
 cd <nom_du_repo>
-
-
-Créer et activer un environnement virtuel :
-
+Création et activation de l’environnement virtuel
+bash
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate    # sous Linux / macOS
+# .venv\Scripts\activate     # sous Windows
+Installation des dépendances
+bash
+pip install numpy pandas scipy matplotlib ipywidgets praw xmltodict certifi
+▶️ Utilisation
+Lancement avec Jupyter Notebook
+Démarrer Jupyter Notebook :
 
-
-Lancer Jupyter Notebook :
-
+bash
 jupyter notebook
+Ouvrir main.ipynb.
 
+Exécuter les cellules pour :
 
-Ouvrir le notebook principal et exécuter les cellules pour :
+Charger le corpus
 
-charger le corpus,
+Lancer l’interface graphique
 
-lancer l’interface graphique,
+Effectuer des recherches par mots-clés
 
-effectuer des recherches.
+Lancement avec un script Python (optionnel)
+Si une version main.py est disponible, il est possible de lancer le moteur en ligne de commande ou via une interface définie dans ce fichier :
 
-🧠 Méthodes utilisées
+bash
+python main.py
+🧠 Méthodes de recherche d’information
+Le moteur repose sur un modèle vectoriel de documents, avec les étapes suivantes :
 
-Modèle vectoriel de documents
+Normalisation du texte (nettoyage, préparation)
 
-Pondération TF-IDF
+Calcul des vecteurs de documents avec TF-IDF
 
-Similarité cosinus
+Calcul de la similarité cosinus entre la requête et chaque document
 
-Normalisation du texte
+Filtrage par métadonnées (source, auteur, période temporelle)
 
-Filtrage des résultats par métadonnées
+Ces méthodes permettent de classer les documents en fonction de leur pertinence par rapport à la requête de l’utilisateur.
 
 🧪 Tests
+Les tests ont été menés de manière incrémentale :
 
-Les tests ont été réalisés de manière incrémentale :
+Tests unitaires des composants principaux :
 
-tests unitaires des méthodes principales (corpus, moteur de recherche),
+Gestion du corpus
 
-tests globaux via l’interface graphique,
+Calcul des scores (TF, TF-IDF, similarité cosinus)
 
-vérification des cas particuliers (requêtes vides, absence de résultats, documents sans date).
+Moteur de recherche
+
+Tests globaux via l’interface graphique
+
+Vérification de cas particuliers :
+
+Requêtes vides
+
+Absence de résultats
+
+Documents sans date
 
 🚀 Évolutions possibles
+Plusieurs pistes d’amélioration sont envisagées :
 
-Ajout du modèle BM25
+Intégration du modèle BM25
 
-Amélioration du prétraitement linguistique (lemmatisation, stop-words)
+Amélioration du prétraitement linguistique :
+
+Lemmatisation
+
+Gestion avancée des stop-words
 
 Intégration de nouvelles sources documentaires
 
-Déploiement sous forme d’application web
+Déploiement du moteur de recherche sous forme d’application web
 
-📚 Sources et utilisation de l’IA
-
+📚 Références et utilisation de l’IA
 Le projet s’appuie sur :
 
-la documentation officielle des bibliothèques Python utilisées,
+La documentation officielle des bibliothèques Python utilisées (numpy, pandas, scipy, matplotlib, ipywidgets, praw, xmltodict, certifi)
 
-les supports de cours,
+Les supports de cours
 
-les documentations des API Reddit et ArXiv.
+Les documentations des API Reddit et ArXiv
 
 Un outil d’intelligence artificielle (ChatGPT) a été utilisé comme assistant pédagogique, notamment pour :
 
-clarifier certains concepts théoriques,
+Clarifier certains concepts théoriques
 
-aider à la résolution d’erreurs,
+Aider à la résolution d’erreurs
 
-améliorer la structuration du projet et de la documentation.
+Améliorer la structuration du projet et la rédaction de la documentation
 
 L’ensemble du code et des choix de conception a été implémenté et validé par l’étudiant.
 
 👤 Auteur
+Projet réalisé individuellement dans le cadre d’une formation universitaire.
 
-Projet réalisé individuellement dans un cadre universitaire.
+text
+
+Pour obtenir un « fichier à télécharger » :  
+- crée un fichier `README.md` sur ton ordinateur,  
+- colle ce contenu,  
+- puis ajoute-le à ton dépôt ou partage-le comme tu veux (GitHub, mail, etc.).[1]
