@@ -36,51 +36,17 @@ Le projet inclut également une **interface graphique interactive** (via `ipywid
 ├── ArxivDocument.py
 ├── SearchEngine.py
 ├── Author.py
-├── main.ipynb / main.py
-├── data/
-│   └── corpus.csv
+├── ui.ipynb / main.py
 ├── README.md
 🛠️ Environnement et installation
 Prérequis
 Python ≥ 3.9
 
-Environnement virtuel recommandé (venv)
-
-Git installé pour cloner le dépôt
-
-Clonage du dépôt
-bash
-git clone <url_du_repo>
-cd <nom_du_repo>
-Création et activation de l’environnement virtuel
-bash
-python3 -m venv .venv
-source .venv/bin/activate    # sous Linux / macOS
-# .venv\Scripts\activate     # sous Windows
 Installation des dépendances
 bash
 pip install numpy pandas scipy matplotlib ipywidgets praw xmltodict certifi
-▶️ Utilisation
-Lancement avec Jupyter Notebook
-Démarrer Jupyter Notebook :
 
-bash
-jupyter notebook
-Ouvrir main.ipynb.
 
-Exécuter les cellules pour :
-
-Charger le corpus
-
-Lancer l’interface graphique
-
-Effectuer des recherches par mots-clés
-
-Lancement avec un script Python (optionnel)
-Si une version main.py est disponible, il est possible de lancer le moteur en ligne de commande ou via une interface définie dans ce fichier :
-
-bash
-python main.py
 🧠 Méthodes de recherche d’information
 Le moteur repose sur un modèle vectoriel de documents, avec les étapes suivantes :
 
@@ -94,26 +60,6 @@ Filtrage par métadonnées (source, auteur, période temporelle)
 
 Ces méthodes permettent de classer les documents en fonction de leur pertinence par rapport à la requête de l’utilisateur.
 
-🧪 Tests
-Les tests ont été menés de manière incrémentale :
-
-Tests unitaires des composants principaux :
-
-Gestion du corpus
-
-Calcul des scores (TF, TF-IDF, similarité cosinus)
-
-Moteur de recherche
-
-Tests globaux via l’interface graphique
-
-Vérification de cas particuliers :
-
-Requêtes vides
-
-Absence de résultats
-
-Documents sans date
 
 🚀 Évolutions possibles
 Plusieurs pistes d’amélioration sont envisagées :
@@ -152,9 +98,3 @@ L’ensemble du code et des choix de conception a été implémenté et validé 
 👤 Auteur
 Projet réalisé individuellement dans le cadre d’une formation universitaire.
 
-text
-
-Pour obtenir un « fichier à télécharger » :  
-- crée un fichier `README.md` sur ton ordinateur,  
-- colle ce contenu,  
-- puis ajoute-le à ton dépôt ou partage-le comme tu veux (GitHub, mail, etc.).[1]
